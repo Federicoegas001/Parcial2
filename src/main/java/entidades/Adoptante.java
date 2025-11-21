@@ -10,4 +10,15 @@ public class Adoptante {
         this.edad = edad;
         this.direccion = direccion;
     }
+
+    public String getNombre(){
+        return this.nombre;
+    }
+
+    public int getEdad(){
+        return this.edad;
+    }
+    public String getDireccion(){
+        return this.direccion;
+  }
 }
