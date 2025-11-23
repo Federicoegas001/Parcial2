@@ -3,6 +3,7 @@ package entidades;
 import java.util.Date;
 
 public abstract class Mascota {
+    protected int id;
     protected String nombre;
     protected Date fechaNacieminto;
     protected float peso;
@@ -10,11 +11,16 @@ public abstract class Mascota {
     protected String especie;
 
     public Mascota(String nombre, Date fechaNacieminto, float peso, String recomendaciones, String especie){
+        this.id = 0;
         this.nombre = nombre;
         this.fechaNacieminto = fechaNacieminto;
         this.peso = peso;
         this.recomendaciones = recomendaciones;
         this.especie = especie;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getEspecie(){
