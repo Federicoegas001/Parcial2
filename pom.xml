@@ -26,7 +26,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
-            <scope>test</scope>
+
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -40,6 +40,12 @@
             <artifactId>h2</artifactId>
             <version>2.4.240</version>
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.toedter/jcalendar -->
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,14 +1,15 @@
-package org.example.implementacionesDAO.h2;
+package org.example.DAO.implementacionesDAO.h2;
 
-import entidades.Adopcion;
-import entidades.Adoptante;
-import entidades.Empleado;
-import entidades.Mascota;
+import org.example.entidades.Adopcion;
+import org.example.entidades.Adoptante;
+import org.example.entidades.Empleado;
+import org.example.entidades.Mascota;
 import org.example.DAO.AdopcionDAO;
 import org.example.utlis.config.ConexionH2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AdopcionDAOH2impl implements AdopcionDAO {
@@ -20,9 +21,9 @@ public class AdopcionDAOH2impl implements AdopcionDAO {
         String sql = "INSERT INTO `adopcion` (`id_mascota`, `id_adoptante`, `id_empleado`) VALUES ( ?, ?, ?)";
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setInt(1, 1);
-            stmt.setInt(2, 1);
-            stmt.setInt(3, 1);
+            stmt.setInt(1, mascota.getId());
+            stmt.setInt(2, adoptante.getId());
+            stmt.setInt(3, empleado.getId());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {

@@ -1,9 +1,6 @@
 package org.example.DAO;
 
-import entidades.Adopcion;
-import entidades.Adoptante;
-import entidades.Empleado;
-import entidades.Mascota;
+import org.example.entidades.Empleado;
 
 public interface EmpleadoDAO {
         Empleado registrarEmpleado(Empleado empleado);

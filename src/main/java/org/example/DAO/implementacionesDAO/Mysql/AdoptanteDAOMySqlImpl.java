@@ -1,6 +1,6 @@
-package org.example.implementacionesDAO.Mysql;
+package org.example.DAO.implementacionesDAO.Mysql;
 
-import entidades.Adoptante;
+import org.example.entidades.Adoptante;
 import org.example.DAO.AdoptanteDAO;
 import org.example.utlis.config.Conexion;
 

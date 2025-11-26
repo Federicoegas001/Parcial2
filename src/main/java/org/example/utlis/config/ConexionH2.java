@@ -17,13 +17,15 @@ public class ConexionH2 {
 
         try {
             con = DriverManager.getConnection(url, user, password);
-
+            Class.forName("org.h2.Driver");
             crearTodasLasTablas(con);
             System.out.println("Conectado con éxito a H2");
 
         } catch (SQLException e) {
             System.out.println("No se pudo establecer conexión: " + e.getMessage());
             e.printStackTrace(); // Buena práctica para ver el error exacto
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
         return con;
     }
@@ -47,6 +49,8 @@ public class ConexionH2 {
             String sqlEmpleado = "CREATE TABLE IF NOT EXISTS empleado (" +
                     "id INT AUTO_INCREMENT PRIMARY KEY, " +
                     "nombre VARCHAR(255), " +
+                    "usuario VARCHAR(50), " +
+                    "clave VARCHAR(50), " +
                     "cargo VARCHAR(50) " +
                     ");";
             stmt.execute(sqlEmpleado);

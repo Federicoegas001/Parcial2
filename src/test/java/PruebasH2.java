@@ -1,10 +1,11 @@
-import entidades.Adoptante;
-import entidades.Empleado;
-import entidades.Perro;
-import org.example.implementacionesDAO.h2.AdopcionDAOH2impl;
-import org.example.implementacionesDAO.h2.AdoptanteDAOH2Impl;
-import org.example.implementacionesDAO.h2.EmpleadoDAOH2Impl;
-import org.example.implementacionesDAO.h2.MascotaDAOH2Impl;
+import org.example.entidades.Adoptante;
+import org.example.entidades.Empleado;
+import org.example.entidades.Mascota;
+import org.example.entidades.Perro;
+import org.example.DAO.implementacionesDAO.h2.AdopcionDAOH2impl;
+import org.example.DAO.implementacionesDAO.h2.AdoptanteDAOH2Impl;
+import org.example.DAO.implementacionesDAO.h2.EmpleadoDAOH2Impl;
+import org.example.DAO.implementacionesDAO.h2.MascotaDAOH2Impl;
 import org.example.utlis.config.ConexionH2;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -33,8 +34,8 @@ public class PruebasH2 {
     public void registrandoEmpleandoEnDBh2(){
         ConexionH2 conexionH2 = new ConexionH2();
         conexionH2.conectar();
-        Empleado empleado = new Empleado("Facundo");
-        EmpleadoDAOH2Impl empleadoDAOH2 = new EmpleadoDAOH2Impl();
+        Empleado empleado = new Empleado("fede" , "dsadsadsa","12314515");
+        EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
         empleadoDAOH2.registrarEmpleado(empleado);
     }
 
@@ -49,8 +50,33 @@ public class PruebasH2 {
     @DisplayName("Registrando Adopcion en DB h2")
     @Test
     public void registrandoAdopcionEnDBh2(){
-        AdopcionDAOH2impl adopcionDAOH2impl = new AdopcionDAOH2impl();
+        Mascota mascota = new Mascota();
+        Adoptante adoptante = new Adoptante();
+        Empleado empleado = new Empleado();
 
-        adopcionDAOH2impl.registrarAdopcion(null, null, null);
+
+        mascota.setId(10);
+        adoptante.setId(10);
+        empleado.setId(16);
+
+
+
+        AdopcionDAOH2impl adopcionDAOH2impl = new AdopcionDAOH2impl();
+        adopcionDAOH2impl.registrarAdopcion(mascota, adoptante, empleado);
+    }
+
+    @DisplayName("Iniciando sesion")
+    @Test
+    public void iniciandoSesionH2() throws Exception {
+        EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
+        Empleado empleado = new Empleado("dsadsa", "dsadsada");
+        empleadoDAOH2.iniciarSesion(empleado);
+    }
+
+    @DisplayName("Iniciando sesion ")
+    @Test
+    public void iniciandoSesion(){
+        EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
+        empleadoDAOH2.iniciarSesion(new Empleado("user", "root"));
     }
 }

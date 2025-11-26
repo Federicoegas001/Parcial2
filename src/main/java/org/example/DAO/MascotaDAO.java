@@ -1,6 +1,6 @@
 package org.example.DAO;
 
-import entidades.Mascota;
+import org.example.entidades.Mascota;
 
 public interface MascotaDAO {
     Mascota registrarMascota(Mascota mascota);

@@ -1,6 +1,6 @@
-package org.example.implementacionesDAO.Mysql;
+package org.example.DAO.implementacionesDAO.Mysql;
 
-import entidades.Mascota;
+import org.example.entidades.Mascota;
 import org.example.DAO.MascotaDAO;
 import org.example.utlis.config.Conexion;
 

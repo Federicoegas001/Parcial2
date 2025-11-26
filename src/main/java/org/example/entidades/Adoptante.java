@@ -1,4 +1,4 @@
-package entidades;
+package org.example.entidades;
 
 public class Adoptante {
     private int id;
@@ -12,6 +12,8 @@ public class Adoptante {
         this.edad = edad;
         this.direccion = direccion;
     }
+
+    public Adoptante(){}
 
     public void setId(int id){
         this.id = id;

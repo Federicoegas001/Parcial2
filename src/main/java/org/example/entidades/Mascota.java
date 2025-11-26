@@ -1,8 +1,8 @@
-package entidades;
+package org.example.entidades;
 
 import java.util.Date;
 
-public abstract class Mascota {
+public  class Mascota {
     protected int id;
     protected String nombre;
     protected Date fechaNacieminto;
@@ -19,8 +19,14 @@ public abstract class Mascota {
         this.especie = especie;
     }
 
+    public Mascota(){}
+
     public void setId(int id){
         this.id = id;
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public String getEspecie(){

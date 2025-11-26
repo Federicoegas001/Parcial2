@@ -1,9 +1,9 @@
-package org.example.implementacionesDAO.Mysql;
+package org.example.DAO.implementacionesDAO.Mysql;
 
-import entidades.Adopcion;
-import entidades.Adoptante;
-import entidades.Empleado;
-import entidades.Mascota;
+import org.example.entidades.Adopcion;
+import org.example.entidades.Adoptante;
+import org.example.entidades.Empleado;
+import org.example.entidades.Mascota;
 import org.example.DAO.AdopcionDAO;
 import org.example.utlis.config.Conexion;
 
@@ -25,9 +25,9 @@ public class AdopcionDAOMySqlImpl implements AdopcionDAO {
             stmt = con.prepareStatement(sql);
 //            adoptante.setId(2);
 //            stmt.setInt(1,adoptante.getId());
-            stmt.setInt(1,2);
-            stmt.setInt(2,1);
-            stmt.setInt(3,2);
+            stmt.setInt(1,mascota.getId());
+            stmt.setInt(2,adoptante.getId());
+            stmt.setInt(3,empleado.getId());
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
