@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.example.vistas.Registrar_adopcion">
+  <grid id="27dc6" binding="registro_adopcion" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="618" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="41ab4" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="seleccionar mascota"/>
+        </properties>
+      </component>
+      <component id="7c77" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="seleccionar adoptante"/>
+        </properties>
+      </component>
+      <component id="9773" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="seleccionar empleado"/>
+        </properties>
+      </component>
+      <component id="d1c93" class="javax.swing.JButton" binding="boton_adopcion">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Button"/>
+        </properties>
+      </component>
+      <scrollpane id="deb68">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <verticalScrollBarPolicy value="20"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="7db31" class="javax.swing.JTable" binding="mascotas">
+            <constraints/>
+            <properties>
+              <enabled value="true"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <scrollpane id="508b0">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="1c9c6" class="javax.swing.JTable" binding="adoptantes">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <scrollpane id="faca7">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="3ed60" class="javax.swing.JTable" binding="empleados">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="24a98" class="javax.swing.JButton" binding="volverButton" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="volver"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
