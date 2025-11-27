@@ -2,6 +2,7 @@ package org.example.vistas;
 
 import javax.swing.*;
 import com.toedter.calendar.JDateChooser;
+import org.example.DAO.implementacionesDAO.Mysql.MascotaDAOMySqlImpl;
 import org.example.DAO.implementacionesDAO.h2.MascotaDAOH2Impl;
 import org.example.entidades.Mascota;
 import org.example.utlis.config.CambiarVentana;
@@ -35,9 +36,13 @@ public class Registrar_Mascota {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == boton_registrar_mascotas){
-                    MascotaDAOH2Impl mascotaDAOH2 = new MascotaDAOH2Impl();
+                    //con H2
+//                    MascotaDAOH2Impl mascotaDAOH2 = new MascotaDAOH2Impl();
+
+                    //Con Mysql
+                    MascotaDAOMySqlImpl mascotaDAOMySql = new MascotaDAOMySqlImpl();
                     try {
-                        mascotaDAOH2.registrarMascota(new Mascota(nombre_registro_mascota.getText(), dateChooser.getDate(), Float.parseFloat(peso_registro_mascota.getText()), recomendaciones_registro_mascota.getText(), especie_registro_mascota.getText()));
+                        mascotaDAOMySql.registrarMascota(new Mascota(nombre_registro_mascota.getText(), dateChooser.getDate(), Float.parseFloat(peso_registro_mascota.getText()), recomendaciones_registro_mascota.getText(), especie_registro_mascota.getText()));
                         JOptionPane.showMessageDialog(null,"Mascota registrada con exito");
                         CambiarVentana cambiarVentana = new CambiarVentana();
                         cambiarVentana.cambiarVentana(boton_registrar_mascotas, new MenuPrincipal().getMenuPrincipal(), "Menu Principal");

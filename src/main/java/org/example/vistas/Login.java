@@ -1,5 +1,6 @@
 package org.example.vistas;
 
+import org.example.DAO.implementacionesDAO.Mysql.EmpleadoDAOMySqlImpl;
 import org.example.DAO.implementacionesDAO.h2.EmpleadoDAOH2Impl;
 import org.example.entidades.Empleado;
 
@@ -23,13 +24,18 @@ public class Login {
             public void actionPerformed(ActionEvent e) {
 
                 if (e.getSource() == button1){
-                    EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
+
+                    //h2
+//                    EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
+
+                    //mysql
+                    EmpleadoDAOMySqlImpl empleadoDAOMySql = EmpleadoDAOMySqlImpl.getInstance();
                     try {
                         String usuariotxt = usuario.getText();
                         String clavetxt = clave.getText();
 
 
-                        boolean usuarioEncontrado = empleadoDAOH2.iniciarSesion(new Empleado(usuario.getText(), clave.getText()));
+                        boolean usuarioEncontrado = empleadoDAOMySql.iniciarSesion(new Empleado(usuariotxt, clavetxt));
                         if (usuarioEncontrado){
                             JFrame frame = new JFrame("Login");
                             // Asegúrate que el método getLogin() o el campo Login sean públicos en tu clase Login
@@ -52,7 +58,7 @@ public class Login {
 
 
                     } catch (Exception ex) {
-                        throw new RuntimeException("Älgo ha salido mal");
+                        throw new RuntimeException(ex.getMessage());
                     }
                 }
             }

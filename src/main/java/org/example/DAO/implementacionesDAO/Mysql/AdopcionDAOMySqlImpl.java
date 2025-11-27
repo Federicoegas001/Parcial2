@@ -12,21 +12,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AdopcionDAOMySqlImpl implements AdopcionDAO {
-    Conexion conexion = new Conexion();
-    Connection con = conexion.conectar();
-    PreparedStatement stmt;
+
 
 
     @Override
     public Adopcion registrarAdopcion(Mascota mascota, Adoptante adoptante, Empleado empleado) {
+        Conexion conexion = new Conexion();
+        Connection con = conexion.conectar();
+        PreparedStatement stmt;
         String sql = "INSERT INTO `adopcion` (`adoptante_id`, `mascota_id`, `empleado_id`) VALUES ( ?, ?, ?)";
 
         try {
             stmt = con.prepareStatement(sql);
 //            adoptante.setId(2);
 //            stmt.setInt(1,adoptante.getId());
-            stmt.setInt(1,mascota.getId());
-            stmt.setInt(2,adoptante.getId());
+            stmt.setInt(2,mascota.getId());
+            stmt.setInt(1,adoptante.getId());
             stmt.setInt(3,empleado.getId());
             stmt.executeUpdate();
             stmt.close();

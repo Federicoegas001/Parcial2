@@ -1,5 +1,6 @@
 package org.example.vistas;
 
+import org.example.DAO.implementacionesDAO.Mysql.EmpleadoDAOMySqlImpl;
 import org.example.DAO.implementacionesDAO.h2.EmpleadoDAOH2Impl;
 import org.example.entidades.Empleado;
 
@@ -23,9 +24,13 @@ public class Registro {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
+                //h2
+//                EmpleadoDAOH2Impl empleadoDAOH2 = EmpleadoDAOH2Impl.getInstance();
+
+                //mysql
+                EmpleadoDAOMySqlImpl empleadoDAOMySql = EmpleadoDAOMySqlImpl.getInstance();
                 try {
-                    empleadoDAOH2.registrarEmpleado(new Empleado(name_registro.getText(), user_registro.getText(), pass_registro.getText()));
+                    empleadoDAOMySql.registrarEmpleado(new Empleado(name_registro.getText(), user_registro.getText(), pass_registro.getText()));
                     JOptionPane.showMessageDialog(null, "Registro exitoso");
                     JFrame frame = new JFrame("Login");
                     // Asegúrate que el método getLogin() o el campo Login sean públicos en tu clase Login

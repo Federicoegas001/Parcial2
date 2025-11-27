@@ -1,5 +1,7 @@
 package org.example.vistas;
 
+import org.example.DAO.implementacionesDAO.Mysql.AdopcionDAOMySqlImpl;
+import org.example.DAO.implementacionesDAO.Mysql.AdoptanteDAOMySqlImpl;
 import org.example.DAO.implementacionesDAO.h2.AdoptanteDAOH2Impl;
 import org.example.entidades.Adoptante;
 import org.example.utlis.config.CambiarVentana;
@@ -21,9 +23,13 @@ public class Registro_Adoptante {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getSource() == registrar_adoptante){
-                    AdoptanteDAOH2Impl adoptanteDAOH2 = new AdoptanteDAOH2Impl();
+                    //con h2
+//                    AdoptanteDAOH2Impl adoptanteDAOH2 = new AdoptanteDAOH2Impl();
+
+                    //con Mysql
+                    AdoptanteDAOMySqlImpl adoptanteDAOMySql = new AdoptanteDAOMySqlImpl();
                     try {
-                        adoptanteDAOH2.registrarAdoptante(new Adoptante(nombre_registro_adoptante.getText(), Integer.parseInt(edad_registro_adoptante.getText()), direccion_registro_adoptante.getText()));
+                        adoptanteDAOMySql.registrarAdoptante(new Adoptante(nombre_registro_adoptante.getText(), Integer.parseInt(edad_registro_adoptante.getText()), direccion_registro_adoptante.getText()));
                         JOptionPane.showMessageDialog(null, "Registro exitoso");
                         CambiarVentana cambiarVentana = new CambiarVentana();
                         cambiarVentana.cambiarVentana(registrar_adoptante, new MenuPrincipal().getMenuPrincipal(), "Menu Principal");

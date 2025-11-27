@@ -1,10 +1,12 @@
 package org.example.vistas;
 
+import org.example.DAO.implementacionesDAO.Mysql.AdopcionDAOMySqlImpl;
 import org.example.DAO.implementacionesDAO.h2.AdopcionDAOH2impl;
 import org.example.entidades.Adoptante;
 import org.example.entidades.Empleado;
 import org.example.entidades.Mascota;
 import org.example.utlis.config.CambiarVentana;
+import org.example.utlis.config.Conexion;
 import org.example.utlis.config.ConexionH2;
 
 import javax.swing.*;
@@ -50,8 +52,12 @@ public class Registrar_adopcion {
                     empleado.setId(idEmpleado);
 
                     // 3. LLAMAR AL DAO
-                    AdopcionDAOH2impl adopcionDAOH2impl = new AdopcionDAOH2impl();
-                    adopcionDAOH2impl.registrarAdopcion(mascota, adoptante, empleado);
+//                    AdopcionDAOH2impl adopcionDAOH2impl = new AdopcionDAOH2impl();
+//                    adopcionDAOH2impl.registrarAdopcion(mascota, adoptante, empleado);
+
+                    // dao mysql
+                    AdopcionDAOMySqlImpl adopcionDAOMySql = new AdopcionDAOMySqlImpl();
+                    adopcionDAOMySql.registrarAdopcion(mascota,adoptante,empleado);
 
                     JOptionPane.showMessageDialog(null, "Adopcion registrada con exito");
                 } catch (HeadlessException ex) {
@@ -100,8 +106,13 @@ public class Registrar_adopcion {
 
         try {
             jtable.setModel(modelo);
-            ConexionH2 conexionH2 = new ConexionH2();
-            Connection con = conexionH2.conectar();
+            //Llenar tabla con h2
+//            ConexionH2 conexionH2 = new ConexionH2();
+//            Connection con = conexionH2.conectar();
+
+            //Llenar tabla con mysql
+            Conexion conexion = new Conexion();
+            Connection con = conexion.conectar();
             PreparedStatement stmt;
             stmt = con.prepareStatement(sql);
             java.sql.ResultSet rs = stmt.executeQuery();
