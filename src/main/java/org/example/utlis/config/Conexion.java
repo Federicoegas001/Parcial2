@@ -7,9 +7,9 @@ public class Conexion {
     Connection con;
 
     public Connection conectar() {
-        String url = "jdbc:mysql://localhost:5432/parcial2";
-        String user = "postgres";
-        String password = "fede";
+        String url = "jdbc:mysql://localhost:3306/parcial2";
+        String user = "root";
+        String password = "";
 
 
         try {
